@@ -31,11 +31,13 @@ namespace RSADemo
 
             while (!primeFound)
             {
-                while (primeCandidate < 2 || primeCandidate % 2 == 0)
+                do
                 {
                     primeCandidate = GetRandomBigInteger(bytesNum);
                 }
-                
+                while (primeCandidate < 2 || primeCandidate % 2 == 0);
+
+
                 if (IsPrime(primeCandidate, bytesNum))
                 {
                     primeFound = true;
