@@ -46,7 +46,7 @@
             this.nLabel = new System.Windows.Forms.Label();
             this.nRichTextBox = new System.Windows.Forms.RichTextBox();
             this.phiLabel = new System.Windows.Forms.Label();
-            this.rphiRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.phiRichTextBox = new System.Windows.Forms.RichTextBox();
             this.kLabel = new System.Windows.Forms.Label();
             this.lLabel = new System.Windows.Forms.Label();
             this.kTextBox = new System.Windows.Forms.TextBox();
@@ -55,12 +55,11 @@
             this.dRichTextBox = new System.Windows.Forms.RichTextBox();
             this.eLabel = new System.Windows.Forms.Label();
             this.dLabel = new System.Windows.Forms.Label();
-            this.GeneratingLBL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlainRichTextBox
             // 
-            this.PlainRichTextBox.Location = new System.Drawing.Point(7, 284);
+            this.PlainRichTextBox.Location = new System.Drawing.Point(11, 259);
             this.PlainRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PlainRichTextBox.Name = "PlainRichTextBox";
             this.PlainRichTextBox.Size = new System.Drawing.Size(762, 109);
@@ -70,7 +69,7 @@
             // PlainTextLabel
             // 
             this.PlainTextLabel.AutoSize = true;
-            this.PlainTextLabel.Location = new System.Drawing.Point(7, 267);
+            this.PlainTextLabel.Location = new System.Drawing.Point(11, 242);
             this.PlainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PlainTextLabel.Name = "PlainTextLabel";
             this.PlainTextLabel.Size = new System.Drawing.Size(50, 13);
@@ -79,10 +78,10 @@
             // 
             // EncryptButton
             // 
-            this.EncryptButton.Location = new System.Drawing.Point(772, 284);
+            this.EncryptButton.Location = new System.Drawing.Point(784, 259);
             this.EncryptButton.Margin = new System.Windows.Forms.Padding(2);
             this.EncryptButton.Name = "EncryptButton";
-            this.EncryptButton.Size = new System.Drawing.Size(165, 108);
+            this.EncryptButton.Size = new System.Drawing.Size(100, 25);
             this.EncryptButton.TabIndex = 2;
             this.EncryptButton.Text = "Encrypt";
             this.EncryptButton.UseVisualStyleBackColor = true;
@@ -90,7 +89,7 @@
             // 
             // EncryptedRichTextBox
             // 
-            this.EncryptedRichTextBox.Location = new System.Drawing.Point(9, 410);
+            this.EncryptedRichTextBox.Location = new System.Drawing.Point(13, 385);
             this.EncryptedRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EncryptedRichTextBox.Name = "EncryptedRichTextBox";
             this.EncryptedRichTextBox.Size = new System.Drawing.Size(760, 97);
@@ -99,10 +98,10 @@
             // 
             // DecryptButton
             // 
-            this.DecryptButton.Location = new System.Drawing.Point(772, 410);
+            this.DecryptButton.Location = new System.Drawing.Point(784, 385);
             this.DecryptButton.Margin = new System.Windows.Forms.Padding(2);
             this.DecryptButton.Name = "DecryptButton";
-            this.DecryptButton.Size = new System.Drawing.Size(165, 96);
+            this.DecryptButton.Size = new System.Drawing.Size(100, 25);
             this.DecryptButton.TabIndex = 4;
             this.DecryptButton.Text = "Decrypt";
             this.DecryptButton.UseVisualStyleBackColor = true;
@@ -111,7 +110,7 @@
             // EncryptedTextLabel
             // 
             this.EncryptedTextLabel.AutoSize = true;
-            this.EncryptedTextLabel.Location = new System.Drawing.Point(7, 394);
+            this.EncryptedTextLabel.Location = new System.Drawing.Point(11, 369);
             this.EncryptedTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EncryptedTextLabel.Name = "EncryptedTextLabel";
             this.EncryptedTextLabel.Size = new System.Drawing.Size(75, 13);
@@ -120,7 +119,7 @@
             // 
             // DecryptedRichTextBox
             // 
-            this.DecryptedRichTextBox.Location = new System.Drawing.Point(9, 525);
+            this.DecryptedRichTextBox.Location = new System.Drawing.Point(13, 500);
             this.DecryptedRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DecryptedRichTextBox.Name = "DecryptedRichTextBox";
             this.DecryptedRichTextBox.Size = new System.Drawing.Size(762, 93);
@@ -129,10 +128,10 @@
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(775, 525);
+            this.ResetButton.Location = new System.Drawing.Point(784, 500);
             this.ResetButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(165, 92);
+            this.ResetButton.Size = new System.Drawing.Size(100, 25);
             this.ResetButton.TabIndex = 7;
             this.ResetButton.Text = "Reset";
             this.ResetButton.UseVisualStyleBackColor = true;
@@ -141,7 +140,7 @@
             // DecryotedTextLabel
             // 
             this.DecryotedTextLabel.AutoSize = true;
-            this.DecryotedTextLabel.Location = new System.Drawing.Point(9, 509);
+            this.DecryotedTextLabel.Location = new System.Drawing.Point(13, 484);
             this.DecryotedTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DecryotedTextLabel.Name = "DecryotedTextLabel";
             this.DecryotedTextLabel.Size = new System.Drawing.Size(76, 13);
@@ -160,10 +159,10 @@
             // 
             // GenerateKeysButton
             // 
-            this.GenerateKeysButton.Location = new System.Drawing.Point(775, 24);
+            this.GenerateKeysButton.Location = new System.Drawing.Point(765, 33);
             this.GenerateKeysButton.Margin = new System.Windows.Forms.Padding(2);
             this.GenerateKeysButton.Name = "GenerateKeysButton";
-            this.GenerateKeysButton.Size = new System.Drawing.Size(165, 167);
+            this.GenerateKeysButton.Size = new System.Drawing.Size(118, 35);
             this.GenerateKeysButton.TabIndex = 10;
             this.GenerateKeysButton.Text = "Generate keys";
             this.GenerateKeysButton.UseVisualStyleBackColor = true;
@@ -182,7 +181,7 @@
             // qLabel
             // 
             this.qLabel.AutoSize = true;
-            this.qLabel.Location = new System.Drawing.Point(9, 59);
+            this.qLabel.Location = new System.Drawing.Point(9, 55);
             this.qLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.qLabel.Name = "qLabel";
             this.qLabel.Size = new System.Drawing.Size(18, 13);
@@ -194,15 +193,15 @@
             this.pTextBox.Location = new System.Drawing.Point(29, 24);
             this.pTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.pTextBox.Name = "pTextBox";
-            this.pTextBox.Size = new System.Drawing.Size(568, 20);
+            this.pTextBox.Size = new System.Drawing.Size(655, 20);
             this.pTextBox.TabIndex = 13;
             // 
             // qTextBox
             // 
-            this.qTextBox.Location = new System.Drawing.Point(29, 59);
+            this.qTextBox.Location = new System.Drawing.Point(29, 55);
             this.qTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.qTextBox.Name = "qTextBox";
-            this.qTextBox.Size = new System.Drawing.Size(568, 20);
+            this.qTextBox.Size = new System.Drawing.Size(655, 20);
             this.qTextBox.TabIndex = 14;
             // 
             // nLabel
@@ -220,7 +219,7 @@
             this.nRichTextBox.Location = new System.Drawing.Point(30, 86);
             this.nRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nRichTextBox.Name = "nRichTextBox";
-            this.nRichTextBox.Size = new System.Drawing.Size(567, 32);
+            this.nRichTextBox.Size = new System.Drawing.Size(853, 34);
             this.nRichTextBox.TabIndex = 16;
             this.nRichTextBox.Text = "";
             // 
@@ -228,45 +227,45 @@
             // 
             this.phiLabel.AutoSize = true;
             this.phiLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.phiLabel.Location = new System.Drawing.Point(9, 146);
+            this.phiLabel.Location = new System.Drawing.Point(10, 136);
             this.phiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phiLabel.Name = "phiLabel";
             this.phiLabel.Size = new System.Drawing.Size(20, 13);
             this.phiLabel.TabIndex = 17;
             this.phiLabel.Text = "Ph";
             // 
-            // rphiRichTextBox
+            // phiRichTextBox
             // 
-            this.rphiRichTextBox.Location = new System.Drawing.Point(29, 134);
-            this.rphiRichTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.rphiRichTextBox.Name = "rphiRichTextBox";
-            this.rphiRichTextBox.Size = new System.Drawing.Size(568, 34);
-            this.rphiRichTextBox.TabIndex = 18;
-            this.rphiRichTextBox.Text = "";
+            this.phiRichTextBox.Location = new System.Drawing.Point(30, 124);
+            this.phiRichTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.phiRichTextBox.Name = "phiRichTextBox";
+            this.phiRichTextBox.Size = new System.Drawing.Size(854, 34);
+            this.phiRichTextBox.TabIndex = 18;
+            this.phiRichTextBox.Text = "";
             // 
             // kLabel
             // 
             this.kLabel.AutoSize = true;
-            this.kLabel.Location = new System.Drawing.Point(612, 24);
+            this.kLabel.Location = new System.Drawing.Point(689, 28);
             this.kLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.kLabel.Name = "kLabel";
-            this.kLabel.Size = new System.Drawing.Size(14, 13);
+            this.kLabel.Size = new System.Drawing.Size(17, 13);
             this.kLabel.TabIndex = 19;
-            this.kLabel.Text = "K";
+            this.kLabel.Text = "K:";
             // 
             // lLabel
             // 
             this.lLabel.AutoSize = true;
-            this.lLabel.Location = new System.Drawing.Point(612, 62);
+            this.lLabel.Location = new System.Drawing.Point(690, 58);
             this.lLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lLabel.Name = "lLabel";
-            this.lLabel.Size = new System.Drawing.Size(13, 13);
+            this.lLabel.Size = new System.Drawing.Size(16, 13);
             this.lLabel.TabIndex = 20;
-            this.lLabel.Text = "L";
+            this.lLabel.Text = "L:";
             // 
             // kTextBox
             // 
-            this.kTextBox.Location = new System.Drawing.Point(629, 25);
+            this.kTextBox.Location = new System.Drawing.Point(706, 25);
             this.kTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.kTextBox.Name = "kTextBox";
             this.kTextBox.Size = new System.Drawing.Size(41, 20);
@@ -274,7 +273,7 @@
             // 
             // lTextBox
             // 
-            this.lTextBox.Location = new System.Drawing.Point(629, 59);
+            this.lTextBox.Location = new System.Drawing.Point(706, 55);
             this.lTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lTextBox.Name = "lTextBox";
             this.lTextBox.Size = new System.Drawing.Size(41, 20);
@@ -282,26 +281,26 @@
             // 
             // eRichTextBox
             // 
-            this.eRichTextBox.Location = new System.Drawing.Point(29, 172);
+            this.eRichTextBox.Location = new System.Drawing.Point(30, 162);
             this.eRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.eRichTextBox.Name = "eRichTextBox";
-            this.eRichTextBox.Size = new System.Drawing.Size(568, 32);
+            this.eRichTextBox.Size = new System.Drawing.Size(854, 32);
             this.eRichTextBox.TabIndex = 23;
             this.eRichTextBox.Text = "";
             // 
             // dRichTextBox
             // 
-            this.dRichTextBox.Location = new System.Drawing.Point(29, 208);
+            this.dRichTextBox.Location = new System.Drawing.Point(30, 198);
             this.dRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.dRichTextBox.Name = "dRichTextBox";
-            this.dRichTextBox.Size = new System.Drawing.Size(568, 34);
+            this.dRichTextBox.Size = new System.Drawing.Size(854, 34);
             this.dRichTextBox.TabIndex = 24;
             this.dRichTextBox.Text = "";
             // 
             // eLabel
             // 
             this.eLabel.AutoSize = true;
-            this.eLabel.Location = new System.Drawing.Point(12, 176);
+            this.eLabel.Location = new System.Drawing.Point(13, 166);
             this.eLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.eLabel.Name = "eLabel";
             this.eLabel.Size = new System.Drawing.Size(14, 13);
@@ -311,32 +310,18 @@
             // dLabel
             // 
             this.dLabel.AutoSize = true;
-            this.dLabel.Location = new System.Drawing.Point(13, 210);
+            this.dLabel.Location = new System.Drawing.Point(14, 200);
             this.dLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dLabel.Name = "dLabel";
             this.dLabel.Size = new System.Drawing.Size(15, 13);
             this.dLabel.TabIndex = 26;
             this.dLabel.Text = "D";
             // 
-            // GeneratingLBL
-            // 
-            this.GeneratingLBL.AutoSize = true;
-            this.GeneratingLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GeneratingLBL.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.GeneratingLBL.Location = new System.Drawing.Point(775, 209);
-            this.GeneratingLBL.Name = "GeneratingLBL";
-            this.GeneratingLBL.Size = new System.Drawing.Size(164, 24);
-            this.GeneratingLBL.TabIndex = 27;
-            this.GeneratingLBL.Text = "GENERATING . . .";
-            this.GeneratingLBL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.GeneratingLBL.Visible = false;
-            // 
             // RSAWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 626);
-            this.Controls.Add(this.GeneratingLBL);
+            this.ClientSize = new System.Drawing.Size(897, 604);
             this.Controls.Add(this.dLabel);
             this.Controls.Add(this.eLabel);
             this.Controls.Add(this.dRichTextBox);
@@ -345,7 +330,7 @@
             this.Controls.Add(this.kTextBox);
             this.Controls.Add(this.lLabel);
             this.Controls.Add(this.kLabel);
-            this.Controls.Add(this.rphiRichTextBox);
+            this.Controls.Add(this.phiRichTextBox);
             this.Controls.Add(this.phiLabel);
             this.Controls.Add(this.nRichTextBox);
             this.Controls.Add(this.nLabel);
@@ -393,7 +378,7 @@
         private System.Windows.Forms.Label nLabel;
         private System.Windows.Forms.RichTextBox nRichTextBox;
         private System.Windows.Forms.Label phiLabel;
-        private System.Windows.Forms.RichTextBox rphiRichTextBox;
+        private System.Windows.Forms.RichTextBox phiRichTextBox;
         private System.Windows.Forms.Label kLabel;
         private System.Windows.Forms.Label lLabel;
         private System.Windows.Forms.TextBox kTextBox;
@@ -402,7 +387,6 @@
         private System.Windows.Forms.RichTextBox dRichTextBox;
         private System.Windows.Forms.Label eLabel;
         private System.Windows.Forms.Label dLabel;
-        private System.Windows.Forms.Label GeneratingLBL;
     }
 }
 

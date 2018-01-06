@@ -14,6 +14,7 @@ namespace RSADemo
     public partial class RSAWindow : Form
     {
         private  const int ALPHABET_LENGHT = 27;
+        private const String ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         private PrimeGenerator primeGenertor = new PrimeGenerator();
         private int m_k;
@@ -24,7 +25,6 @@ namespace RSADemo
         private String plainText;
         private String encryptedText;
         private String decryptedText;
-        private const String ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public RSAWindow()
         {
@@ -43,8 +43,8 @@ namespace RSADemo
 
         private void GenerateKeysButton_Click(object sender, EventArgs e)
         {
-            System.Numerics.BigInteger p, q, n, phi;
-            System.Numerics.BigInteger kp, lp;
+            BigInteger p, q, n, phi;
+            BigInteger kp, lp;
 
 
             if (kTextBox.Text.Length == 0 || lTextBox.Text.Length == 0)
@@ -53,26 +53,18 @@ namespace RSADemo
                 return;
             }
 
-            GeneratingLBL.Visible = true;
-
             m_k = Int32.Parse(kTextBox.Text.ToString());
             m_l = Int32.Parse(lTextBox.Text.ToString());
 
             kp = primeGenertor.RepeatedSquaringExp(ALPHABET_LENGHT, m_k);
             lp = primeGenertor.RepeatedSquaringExp(ALPHABET_LENGHT, m_l);
 
-            //int k, l;
-
-            //k = m_k * 5;
-            //l = m_l * 5;
-            //l = l / 8;
-
             int l = lp.ToByteArray().Length;
 
             q = primeGenertor.GeneratePrime((l / 2));
             p = primeGenertor.GeneratePrime((l / 2));
 
-            System.Numerics.BigInteger prod = p * q;
+            BigInteger prod = p * q;
 
             while (kp > prod || prod > lp)
             {
@@ -81,23 +73,56 @@ namespace RSADemo
                 prod = p * q;
             }
 
-
             pTextBox.Text = p.ToString();
-
             qTextBox.Text = q.ToString();
-
             n = prod;
             phi = (p - 1) * (q - 1);
 
             nRichTextBox.Text = n.ToString();
             N = n;
-            rphiRichTextBox.Text = phi.ToString();
+            phiRichTextBox.Text = phi.ToString();
             E = FindE(phi);
             eRichTextBox.Text = E.ToString();
             D = FindD(phi, E);
             dRichTextBox.Text = D.ToString();
 
-            GeneratingLBL.Visible = false;
+        }
+
+        private BigInteger FindE(BigInteger Phi)
+        {
+            BigInteger e = Phi - 3;
+
+            while (1 != primeGenertor.GCD(e, Phi))
+            {
+                e--;
+            }
+
+            return e;
+        }
+
+        private BigInteger FindD(BigInteger Phi, BigInteger E)
+        {
+            BigInteger m0 = Phi, t, q;
+            BigInteger x0 = 0, x1 = 1;
+
+            if (Phi == 1)
+                return 0;
+
+            while (E > 1)
+            {
+                q = E / Phi;
+                t = Phi;
+                Phi = E % Phi;
+                E = t;
+                t = x0;
+                x0 = x1 - q * x0;
+                x1 = t;
+            }
+
+            if (x1 < 0)
+                x1 += m0;
+
+            return x1;
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
@@ -108,6 +133,9 @@ namespace RSADemo
 
             if (IsValidText(PlainRichTextBox.Text))
             {
+                plainText = PlainRichTextBox.Text;
+                m_k = Int32.Parse(kTextBox.Text.ToString());
+                m_l = Int32.Parse(lTextBox.Text.ToString());
                 PadText();
                 Encrypt();
             } else {
@@ -121,7 +149,7 @@ namespace RSADemo
             encryptedText = "";
             int power = m_k - 1;
             int index = 0;
-            System.Numerics.BigInteger encryptedValue = 0;
+            BigInteger encryptedValue = 0;
 
             while (index < plainText.Length)
             {
@@ -177,9 +205,16 @@ namespace RSADemo
 
         private void DecryptButton_Click(object sender, EventArgs e)
         {
+            BigInteger.TryParse(eRichTextBox.Text, out E);
+            BigInteger.TryParse(nRichTextBox.Text, out N);
+            BigInteger.TryParse(dRichTextBox.Text, out D);
+
+
             if (IsValidText(EncryptedRichTextBox.Text))
             {
-                //PadText();
+                encryptedText = EncryptedRichTextBox.Text;
+                m_k = Int32.Parse(kTextBox.Text.ToString());
+                m_l = Int32.Parse(lTextBox.Text.ToString());
                 Decrypt();
             }
             else
@@ -194,7 +229,7 @@ namespace RSADemo
             decryptedText = "";
             int power = m_l - 1;
             int index = 0;
-            System.Numerics.BigInteger decryptedValue = 0;
+            BigInteger decryptedValue = 0;
 
             while (index < encryptedText.Length)
             {
@@ -253,7 +288,7 @@ namespace RSADemo
             pTextBox.Text = "";
             qTextBox.Text = "";
             nRichTextBox.Text = "";
-            rphiRichTextBox.Text = "";
+            phiRichTextBox.Text = "";
             eRichTextBox.Text = "";
             dRichTextBox.Text = "";
             PlainRichTextBox.Text = "";
@@ -283,46 +318,5 @@ namespace RSADemo
 
         }
 
-        private System.Numerics.BigInteger FindE(System.Numerics.BigInteger Phi)
-        {
-            System.Numerics.BigInteger e = Phi - 3;
-
-            while (1 != primeGenertor.GCD(e, Phi))
-            {
-                e--;
-            }
-
-            return e;
-        }
-
-        private System.Numerics.BigInteger FindD(System.Numerics.BigInteger Phi, System.Numerics.BigInteger E)
-        {
-            System.Numerics.BigInteger m0 = Phi, t, q;
-            System.Numerics.BigInteger x0 = 0, x1 = 1;
-
-            if (Phi == 1)
-                return 0;
-
-            while (E > 1)
-            {
-                q = E / Phi;
-
-                t = Phi;
-
-                Phi = E % Phi;
-                E = t;
-
-                t = x0;
-
-                x0 = x1 - q * x0;
-
-                x1 = t;
-            }
-
-            if (x1 < 0)
-                x1 += m0;
-
-            return x1;
-        }
     }
 }
