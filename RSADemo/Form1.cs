@@ -55,6 +55,11 @@ namespace RSADemo
 
             m_k = Int32.Parse(kTextBox.Text.ToString());
             m_l = Int32.Parse(lTextBox.Text.ToString());
+            if (m_k >= m_l)
+            {
+                Error("L must be larger than K");
+                return;
+            }
 
             kp = primeGenertor.RepeatedSquaringExp(ALPHABET_LENGHT, m_k);
             lp = primeGenertor.RepeatedSquaringExp(ALPHABET_LENGHT, m_l);
@@ -62,7 +67,7 @@ namespace RSADemo
             int l = lp.ToByteArray().Length;
 
             q = primeGenertor.GeneratePrime((l / 2));
-            p = primeGenertor.GeneratePrime((l / 2));
+            p = primeGenertor.GeneratePrime((l / 2) - 2);
 
             BigInteger prod = p * q;
 
@@ -92,7 +97,7 @@ namespace RSADemo
         {
             BigInteger e = Phi - 3;
 
-            while (1 != primeGenertor.GCD(e, Phi))
+            while (primeGenertor.GCD(e, Phi) != 1)
             {
                 e--;
             }
@@ -102,7 +107,32 @@ namespace RSADemo
 
         private BigInteger FindD(BigInteger Phi, BigInteger E)
         {
-            BigInteger m0 = Phi, t, q;
+            BigInteger t, q, m0 = Phi;
+            BigInteger x0 = 0, x1 = 1;
+
+            if (Phi == 1)
+                return 0;
+
+            while (E > 1)
+            {
+                q = E / Phi;
+                t = Phi;
+                Phi = E % Phi;
+                E = t;
+                t = x0;
+                x0 = x1 - q * x0;
+                x1 = t;
+            }
+
+            if (x1 < 0)
+                x1 += m0;
+
+            return x1;
+        }
+
+        private BigInteger FindD_OLD(BigInteger Phi, BigInteger E)
+        {
+            BigInteger t, q, m0 = Phi;
             BigInteger x0 = 0, x1 = 1;
 
             if (Phi == 1)
