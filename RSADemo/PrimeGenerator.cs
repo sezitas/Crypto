@@ -26,6 +26,11 @@ namespace RSADemo
 
         public BigInteger GeneratePrime(int bytesNum)
         {
+            if (bytesNum < 1)
+            {
+                bytesNum = 1;
+            }
+
             bool primeFound = false;
             BigInteger primeCandidate = -1;
 
@@ -36,7 +41,6 @@ namespace RSADemo
                     primeCandidate = GetRandomBigInteger(bytesNum);
                 }
                 while (primeCandidate < 2 || primeCandidate % 2 == 0);
-
 
                 if (IsPrime(primeCandidate, bytesNum))
                 {

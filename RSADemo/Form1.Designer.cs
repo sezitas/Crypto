@@ -55,6 +55,7 @@
             this.dRichTextBox = new System.Windows.Forms.RichTextBox();
             this.eLabel = new System.Windows.Forms.Label();
             this.dLabel = new System.Windows.Forms.Label();
+            this.PrimeGenerationCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // PlainRichTextBox
@@ -159,7 +160,7 @@
             // 
             // GenerateKeysButton
             // 
-            this.GenerateKeysButton.Location = new System.Drawing.Point(765, 33);
+            this.GenerateKeysButton.Location = new System.Drawing.Point(765, 24);
             this.GenerateKeysButton.Margin = new System.Windows.Forms.Padding(2);
             this.GenerateKeysButton.Name = "GenerateKeysButton";
             this.GenerateKeysButton.Size = new System.Drawing.Size(118, 35);
@@ -317,11 +318,24 @@
             this.dLabel.TabIndex = 26;
             this.dLabel.Text = "D";
             // 
+            // PrimeGenerationCheckbox
+            // 
+            this.PrimeGenerationCheckbox.AutoSize = true;
+            this.PrimeGenerationCheckbox.Checked = true;
+            this.PrimeGenerationCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PrimeGenerationCheckbox.Location = new System.Drawing.Point(771, 64);
+            this.PrimeGenerationCheckbox.Name = "PrimeGenerationCheckbox";
+            this.PrimeGenerationCheckbox.Size = new System.Drawing.Size(104, 17);
+            this.PrimeGenerationCheckbox.TabIndex = 28;
+            this.PrimeGenerationCheckbox.Text = "Generate Primes";
+            this.PrimeGenerationCheckbox.UseVisualStyleBackColor = true;
+            // 
             // RSAWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 604);
+            this.Controls.Add(this.PrimeGenerationCheckbox);
             this.Controls.Add(this.dLabel);
             this.Controls.Add(this.eLabel);
             this.Controls.Add(this.dRichTextBox);
@@ -387,6 +401,7 @@
         private System.Windows.Forms.RichTextBox dRichTextBox;
         private System.Windows.Forms.Label eLabel;
         private System.Windows.Forms.Label dLabel;
+        private System.Windows.Forms.CheckBox PrimeGenerationCheckbox;
     }
 }
 

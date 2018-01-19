@@ -53,8 +53,8 @@ namespace RSADemo
                 return;
             }
 
-            m_k = Int32.Parse(kTextBox.Text.ToString());
-            m_l = Int32.Parse(lTextBox.Text.ToString());
+            m_k = Int32.Parse(kTextBox.Text);
+            m_l = Int32.Parse(lTextBox.Text);
             if (m_k >= m_l)
             {
                 Error("L must be larger than K");
@@ -66,12 +66,20 @@ namespace RSADemo
 
             int l = lp.ToByteArray().Length;
 
-            q = primeGenertor.GeneratePrime((l / 2));
-            p = primeGenertor.GeneratePrime((l / 2) - 2);
+            if (!PrimeGenerationCheckbox.Checked && pTextBox.Text != "" && qTextBox.Text != "")
+            {
+                p = BigInteger.Parse(pTextBox.Text);
+                q = BigInteger.Parse(qTextBox.Text);
+            }
+            else
+            {
+                q = primeGenertor.GeneratePrime((l / 2));
+                p = primeGenertor.GeneratePrime((l / 2) - 2);
+            }
 
             BigInteger prod = p * q;
 
-            while (kp > prod || prod > lp)
+            while (PrimeGenerationCheckbox.Checked && kp > prod || prod > lp)
             {
                 q = primeGenertor.GeneratePrime((l / 2));
                 p = primeGenertor.GeneratePrime((l / 2));
@@ -161,9 +169,9 @@ namespace RSADemo
             BigInteger.TryParse(nRichTextBox.Text, out N);
             BigInteger.TryParse(dRichTextBox.Text, out D);
 
-            if (IsValidText(PlainRichTextBox.Text))
+            if (IsValidText(PlainRichTextBox.Text.ToUpper()))
             {
-                plainText = PlainRichTextBox.Text;
+                plainText = PlainRichTextBox.Text.ToUpper();
                 m_k = Int32.Parse(kTextBox.Text.ToString());
                 m_l = Int32.Parse(lTextBox.Text.ToString());
                 PadText();
@@ -339,13 +347,10 @@ namespace RSADemo
 
         private void PadText()
         {
-            plainText = PlainRichTextBox.Text;
-
-            while (plainText.Length % m_k != 0)
+           while (plainText.Length % m_k != 0)
             {
                 plainText += " ";
             }
-
         }
 
     }
